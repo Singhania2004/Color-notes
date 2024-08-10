@@ -1,0 +1,383 @@
+:root {
+    --black: black;
+    --white: white;
+    --popup: #202020a0;
+    --popup-text: rgb(219, 217, 217);
+    --bg1: #8a2be2;
+    --bg2: #a10000;
+    --bg3: #008846;
+    --bg4: #e90074;
+    --cursive-font: "Shantell Sans", cursive;
+    --main-font: "Poppins", sans-serif;
+}
+
+.lightmode{
+    --black: white;
+    --white: black;
+    --popup: #bbb2b2a0;
+    --popup-text: black;
+    --bg1: #9559cd;
+    --bg2: #d24545;
+    --bg3: #31ae71;
+    --bg4: #ff63b1;
+    --navWt: 500;
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--black);
+    color: var(--white);
+    font-family: var(--main-font);
+}
+
+.navbar h1 {
+    font-family: var(--cursive-font);
+    text-transform: uppercase;
+}
+
+.navbar {
+    background-image: linear-gradient(to left, rgb(231, 96, 231), rgb(197, 11, 169), rgb(209, 84, 73));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    height: 10vh;
+    font-size: 27px;
+    display: flex;
+    padding: 8px 0 8px 0;
+    align-items: center;
+    gap: 8px;
+}
+
+.material-symbols-outlined {
+    font-size: 35px;
+}
+
+main {
+    height: 90vh;
+    display: flex;
+    gap: 38px;
+}
+
+.padding {
+    padding: 0 35px;
+}
+
+.side-nav {
+    height: 100%;
+    width: 13vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 25px 0 35px 0;
+    font-size: 22px;
+    font-weight: var(--navWt);
+}
+
+.side-nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.side-nav .addNote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 8px;
+    border-radius: 10px;
+    font-size: 22px;
+    gap: 7px;
+}
+
+.all-notes {
+    width: 50vw;
+    height: 100%;
+    padding: 0px 10px;
+}
+
+.note-page {
+    height: 100%;
+    min-width: 465px;
+    padding: 22px 0px 35px 0px;
+}
+
+.note-pg {
+    position: relative;
+    height: 100%;
+    background-image: url(./images/theme1.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.all-notes .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 22px 0px;
+}
+
+.all-notes input {
+    font-size: 22px;
+    background-color: transparent;
+    padding: 8px 12px;
+    border-radius: 14px;
+    color: var(--white);
+}
+
+.notesDisplay {
+    height: 71vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    grid-auto-rows: 18vh;
+    width: 100%;
+    gap: 20px;
+    margin-top: 35px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.note {
+    height: 18vh;
+    background: blueviolet;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.note h2{
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.note p {
+    display: -webkit-box;
+    overflow: hidden;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 23px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3.5px;
+    border-radius: 50%;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #2196F3;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+    transform: translateX(22px);
+}
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 30px;
+    gap: 12px;
+}
+
+.dropdown {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.radio-toggle{
+    margin-left: 30px;
+    font-size: 18px;
+    color: #727272;
+    font-weight: 500;
+}
+
+.radio-toggle input{
+    height: 15px;
+    width: 15px;
+}
+
+.radio-toggle input[type="radio"]:checked+label {
+    color: var(--white);
+}
+
+.note-fill{
+    position: absolute;
+    top: 80px;
+    left: 70px;
+    right: 67px;
+    display: none;
+}
+
+.note-fill input{
+    background-color: transparent;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 5px 12px;
+    border-radius: 14px;
+}
+
+.note-fill textarea{
+    background-color: transparent;
+    font-size: 17.5px;
+    margin-bottom: 15px;
+    padding: 8px 10px;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.note-fill button{
+    font-size: 20px;
+    float: right;
+    padding: 4px 10px;
+    border-radius: 14px;
+}
+
+.alert-fill{
+    color: white;
+    display: inline-block;
+    padding: 3px 7px;
+    font-size: 17px;
+    border-radius: 4px;
+}
+
+.add, .features *, .side-nav li, .note-fill button{
+    cursor: pointer;
+}
+
+.note-fill .options{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-right: 8px;
+}
+
+.bin{
+    height: 32px;
+}
+
+.features{
+    display: flex;
+    gap: 8px;
+}
+
+.features .color{
+    height: 32px;
+    width: 32px;
+    border: 3px solid black;
+    background: blueviolet;
+    border-radius: 0;
+}
+
+@media screen and (max-width: 425px) {
+    main{
+        flex-wrap: wrap;
+        overflow-y: auto;
+        gap: 0px;
+    }
+    .padding {
+        padding: 0 8px;
+    }
+    .all-notes{
+        width: 75vw;
+    }
+    .side-nav{
+        width: 15vw;
+    }
+    .note-page {
+        min-width: 320px;
+        width: 90vw;
+        margin: auto;
+        padding: 0px;
+        padding-top: 15px;
+    }
+}
+
+#popup{
+    position: absolute;
+    top: 30vh;
+    left: 0;
+    border: 0;
+    border-radius: 20px;
+    margin: 0 auto;
+    animation: slide 0.5s ease-out;
+    padding: 25px;
+    color: var(--popup-text);
+    text-transform: uppercase;
+    font-size: 20px;
+    background: var(--popup);
+    backdrop-filter: blur(10px);
+}
+
+@keyframes slide{
+    from{
+        transform: translateY(-100px);
+    }
+}
+
+.colorOptns{
+    display: flex;
+    gap: 3vh;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.color-select{
+    height: 10vw;
+    width: 10vw;
+    border: 2.5px solid black;
+    border-radius: 10px;
+}
+
